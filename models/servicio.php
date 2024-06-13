@@ -32,3 +32,5 @@ class Servicio extends ActiveRecord{
         return self::$alertas;
     }
 }
+
+// posible error
