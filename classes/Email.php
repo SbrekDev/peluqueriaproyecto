@@ -6,6 +6,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class Email{
 
+    //asd
+
     public $email;
     public $nombre;
     public $token;
