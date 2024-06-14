@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+require_once 'classes\Email.php';
+
 use Classes\Email;
 use Model\Usuario;
 use MVC\Router;
@@ -75,7 +77,7 @@ class LoginController{
                     $usuario->guardar();
 
                     //enviar el email   
-                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
+                    $email = new Email($usuario->nombre,$usuario->email,$usuario->token);
                     $email->enviarInstrucciones();
 
 
@@ -141,6 +143,15 @@ class LoginController{
 
 
     public static function crear(Router $router){ 
+
+
+        if (!class_exists(Email::class)) {
+            error_log('La clase Email no se encontró');
+        } else {
+            error_log('La clase Email se cargó correctamente');
+        }
+
+
         $usuario = new Usuario;
 
         // alertas vacias
@@ -166,7 +177,7 @@ class LoginController{
                     $usuario->crearToken();
 
                     // enviar el email
-                    $email = new Email($usuario->nombre, $usuario->email, $usuario->token);
+                    $email = new Email($usuario->nombre,$usuario->email,$usuario->token);
 
                     $email->enviarConfirmacion();
 
