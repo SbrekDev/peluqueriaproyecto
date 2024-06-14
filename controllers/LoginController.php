@@ -2,7 +2,6 @@
 
 namespace Controllers;
 
-require_once 'classes\Email.php';
 
 use Classes\Email;
 use Model\Usuario;
@@ -143,14 +142,6 @@ class LoginController{
 
 
     public static function crear(Router $router){ 
-
-
-        if (!class_exists(Email::class)) {
-            error_log('La clase Email no se encontró');
-        } else {
-            error_log('La clase Email se cargó correctamente');
-        }
-
 
         $usuario = new Usuario;
 
