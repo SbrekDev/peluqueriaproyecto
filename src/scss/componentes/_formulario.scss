@@ -11,7 +11,11 @@
     margin-bottom: 2rem;
     align-items: center;
     label{
+        display: none;
         flex: 0 0 10rem;
+        @include m.tablet{
+            display: block;
+        }
     }
     input{
         flex: 1;
